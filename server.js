@@ -40,11 +40,11 @@ app.use(methodOverride('_method'));
 
 //Setup Session -stored in MongoDb
 app.use(session({
-    secret: 'your secret key',
+    secret: 'Key Board',
     resave: false,
     saveUninitialized: false,
     store: MongoStore.create({
-        mongoUrl: process.env.MONGO_URI,
+        mongoUrl: process.env.DB_STRING,
         ttl: 14 * 24 * 60 * 60 // 14 days
     }),
     cookie: { maxAge: 180 * 60 * 1000 } // 3 hours
