@@ -85,13 +85,13 @@ exports.postSignup = (req, res, next) => {
     });
 
     const user = new User({
-        userName: req.body.userName,
+        username: req.body.username,
         email: req.body.email,
         password: req.body.password,
     });
 
     User.findOne(
-        { $or: [{ email: req.body.email }, { userName: req.body.userName }] },
+        { $or: [{ email: req.body.email }, { username: req.body.username }] },
         (err, existingUser) => {
             if (err) {
                 return next(err);
